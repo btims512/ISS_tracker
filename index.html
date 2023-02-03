@@ -44,11 +44,11 @@
           <div class="text-container">
             <div class="text-box top">
               <h2>Find My ISS</h2>
-              <br />
+              <!-- <br /> -->
               <p>Locate the International Space Station</p>
             </div>
             <div id="day-night">
-              <h4><span id="vis"></span></h4>
+              <h4><p id="vis"></p></h4>
             </div>
             <div class="text-box bottom">
               <div class="lat-box">
@@ -61,21 +61,32 @@
                 <p>Longitude</p>
               </div>
             </div>
+            <!-- Altitude -->
+            <div class="boxes">
 
-            <div class="bottom-box">
-              <div class="left">
-                <img class="alt-img" src="./public/images/icon.png" alt="" />
-                <p>&nbsp;Altitude</p>
+              <div class="bottom-box">
+                <div class="left">
+                  <img class="alt-img" src="./public/images/icon.png" alt="" />
+                  <p>&nbsp;Altitude</p>
+                </div>
+                <p><strong id="alt"></strong> mi high</p>
               </div>
-              <p><strong id="alt"></strong> mi high</p>
-            </div>
-
-            <div class="bottom-box">
-              <div class="left">
-                <img class="alt-img" src="public/images/dashboard.png" alt="" />
-                <div class="mid-2">&nbsp; MPH</div>
+              <!-- MPH -->
+              <div class="bottom-box">
+                <div class="left">
+                  <img class="vel-img" src="public/images/dashboard.png" alt="" />
+                  <p>&nbsp;Velocity</p>
+                </div>
+                <p><strong id="vel"></strong> mph</p>
               </div>
-              <div id="mph"><span id="vel"></span></div>
+              <!-- Time  -->
+              <div class="bottom-box">
+                <div class="left">
+                  <img class="vel-img" src="public/images/clock.png" alt="" />
+                  <p>&nbsp;Time</p>
+                </div>
+                <p><strong id="time"></strong> mst</p>
+              </div>
             </div>
           </div>
         </div>

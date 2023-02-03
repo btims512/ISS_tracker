@@ -83,6 +83,15 @@ p {
   width: 50px;
 }
 
+.boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
 .bottom-box {
   background-color: white;
   width: 265px;
@@ -91,6 +100,45 @@ p {
   justify-content: space-around;
   border-radius: 8px;
   align-items: center;
+}
+
+.text-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 70px;
+}
+
+.lat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  height: 49px;
+  width: 1px;
+  background: #B2B6B8;
+  border-radius: 999px;
+  grid-area: 1 / 2 / 2 / 3;
+  display: grid;
+  justify-self: center;
+}
+
+.alt-img {
+  width: 28px;
+}
+
+.vel-img {
+  width: 21px;
 }
 
 .iss {
@@ -112,9 +160,9 @@ p {
 
   #day-night {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
-    gap: 8px;
+
   }
 
   #day-night img {
@@ -148,9 +196,10 @@ p {
   .section-left .top {
     display: flex;
     width: -webkit-fill-available;
-    justify-content: space-evenly;
+    justify-content: end;
     flex-direction: column;
     align-items: center;
+    margin-top: -20px;
   }
 
   .middle { 
@@ -167,7 +216,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-      height: 325px;
+    height: 335px;
     justify-content: space-around;
   }
 
@@ -177,6 +226,11 @@ p {
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    height: 57px;
+  }
+
+  .text-box box {
+    justify-content: end;
   }
 
   .text-box p {
@@ -218,6 +272,10 @@ p {
 
   .alt-img {
     width: 28px;
+  }
+
+  .vel-img {
+    width: 21px;
   }
 }
 
