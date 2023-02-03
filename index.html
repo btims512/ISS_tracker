@@ -35,7 +35,7 @@
   </head>
   <body>
     <div class="header">
-      <h1>Where the ISS at??</h1>
+      <!-- <h1>Where the ISS at??</h1> -->
     </div>
 
     <div class="main-section">
@@ -62,7 +62,21 @@
               </div>
             </div>
 
-            <p>Altitude: <span id="alt"></span> miles high</p>
+            <div class="bottom-box">
+              <div class="left">
+                <img class="alt-img" src="./public/images/icon.png" alt="" />
+                <p>&nbsp;Altitude</p>
+              </div>
+              <p><strong id="alt"></strong> mi high</p>
+            </div>
+
+            <div class="bottom-box">
+              <div class="left">
+                <img class="alt-img" src="public/images/dashboard.png" alt="" />
+                <div class="mid-2">&nbsp; MPH</div>
+              </div>
+              <div id="mph"><span id="vel"></span></div>
+            </div>
           </div>
         </div>
         <div class="section-right">

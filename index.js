@@ -17,14 +17,21 @@ const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(map);
 
-const api_url = "https://api.wheretheiss.at/v1/satellites/25544?&units=miles";
-
 let firstTime = true;
+const api_url = "https://api.wheretheiss.at/v1/satellites/25544?&units=miles";
 
 async function getISS() {
   const response = await fetch(api_url);
   const data = await response.json();
-  const { latitude, longitude, altitude, timestamp, units, visibility } = data;
+  const {
+    latitude,
+    longitude,
+    altitude,
+    timestamp,
+    units,
+    visibility,
+    velocity,
+  } = data;
 
   marker.setLatLng([latitude, longitude]);
   if (firstTime) {
@@ -32,67 +39,47 @@ async function getISS() {
     firstTime = false;
   }
   const word = visibility;
-
   const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
-  // console.log(capitalized);
+
+  const formattedNumber = velocity;
+  const formattedVelocity = formattedNumber.toLocaleString("en-US");
 
   document.getElementById("lat").textContent = latitude.toFixed(3);
   document.getElementById("lon").textContent = longitude.toFixed(3);
   document.getElementById("alt").textContent = altitude.toFixed(2);
   document.getElementById("time").textContent = timestamp.toFixed(2);
+  document.getElementById("vel").textContent = formattedVelocity;
   document.getElementById("vis").textContent = capitalized;
 
-  // daylight or eclipsed image
-
-  console.log(data.visibility);
+  console.log(velocity.toFixed(0));
 
   dateObj = new Date(timestamp * 1000);
   mtcString = dateObj.toMTCString();
   time = utcString.slice(-11, -4);
-
-  console.log(time);
 }
-
+// setInterval(getISS, 1000);
 getISS();
 
-// const globalFunction = () => {
-//   getISS()
-// }
+// daylight or eclipsed image
+async function imgChange() {
+  const response = await fetch(api_url);
+  const data = await response.json();
+  const { visibility } = data;
 
-// setInterval(getISS, 1000);
+  console.log(visibility);
 
-// const imgChange = () => {
-//   if (getISS(data.visibility) == "daylight") {
-//     let img = document.createElement("img");
-//     img.src = "public/images/sun.png";
-//     let src = document.getElementById("day-night");
-//     src.appendChild(img);
-//   } else {
-//     data.visibility == "eclipsed";
-//     let img = document.createElement("img");
-//     img.src = "public/images/eclipse.png";
-//     let src = document.getElementById("day-night");
-//     src.appendChild(img);
-//   }
-// };
+  if (visibility == "daylight") {
+    let img = document.createElement("img");
+    img.src = "public/images/sun.png";
+    let src = document.getElementById("day-night");
+    src.appendChild(img);
+  } else {
+    visibility == "eclipsed";
+    let img = document.createElement("img");
+    img.src = "public/images/eclipse.png";
+    let src = document.getElementById("day-night");
+    src.appendChild(img);
+  }
+}
 
-// window.setTimeout(function () {
-//   imgChange();
-// }, 1000);
-
-// function sayHi() {
-//   if (data.visibility == "daylight") {
-//     let img = document.createElement("img");
-//     img.src = "public/images/sun.png";
-//     let src = document.getElementById("day-night");
-//     src.appendChild(img);
-//   } else {
-//     data.visibility == "eclipsed";
-//     let img = document.createElement("img");
-//     img.src = "public/images/eclipse.png";
-//     let src = document.getElementById("day-night");
-//     src.appendChild(img);
-//   }
-// }
-
-// setTimeout(imgChange, 1000);
+imgChange();
