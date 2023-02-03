@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="public/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <title>Where the ISS at??</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Where the ISS at??</h1>
+    </div>
+
+    <div class="main-section">
+      <div class="section">
+        <div class="section-left">
+          <div class="text-container">
+            <div class="text-box top">
+              <h2>Find My ISS</h2>
+              <br />
+              <p>Locate the International Space Station</p>
+            </div>
+            <div id="day-night">
+              <h4><span id="vis"></span></h4>
+            </div>
+            <div class="text-box bottom">
+              <div class="lat-box">
+                <h3><span id="lat"></span>°</h3>
+                <p>Latitude</p>
+              </div>
+              <div class="line"></div>
+              <div class="lon-box">
+                <h3><span id="lon"></span>°</h3>
+                <p>Longitude</p>
+              </div>
+            </div>
+
+            <p>Altitude: <span id="alt"></span> miles high</p>
+          </div>
+        </div>
+        <div class="section-right">
+          <img
+            class="iss"
+            src="/public/images/ISS_spacecraft_model.png"
+            alt="International Space Station"
+            srcset=""
+          />
+        </div>
+      </div>
+      <div class="section-details">
+        <div id="time"></div>
+      </div>
+      <div class="map-container">
+        <div id="issMap"></div>
+      </div>
+    </div>
+    <script></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-image: url(../public/images/bg-pattern-1.png);
+}
+
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+.header {
+  font-family: 'Gemunu Libre', sans-serif;
+}
+
+#issMap { 
+  height: 280px;
+
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 25px;
+}
+
+.section-left {
+  font-family: 'Gemunu Libre', sans-serif;
+  width: 312px;
+  height: 325px;
+  border-radius: 20px;
+  background: linear-gradient(137.34deg, rgba(0, 240, 255, 0.2) 0%, rgba(0, 87, 255, 0.2) 100%);
+}
+
+.section-right {
+  /* display: none; */
+}
+
+.container {
+  width: 726px;
+  height: 495px;
+}
+
+#day-night img {
+  width: 50px;
+}
+
+.iss {
+  width: 500px;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 1023px) {
+
+  #day-night {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-right: 11px;
+  }
+  
+  .header {
+    display: none;
+  }
+
+  .section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column-reverse;
+    margin: 25px;
+    gap: 25px;
+  }
+
+  .iss {
+    width: 311px;
+  }
+
+  .section-left {
+    width: 312px;
+    height: 325px;
+    
+  }
+
+  .section-left .top {
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 325px;
+    justify-content: space-around;
+  }
+
+  .text-box {
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .text-box p {
+    font-size: 14px;
+    color: #1671A2;
+  }
+
+  .text-box h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 32px;
+  }
+
+  .lat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .line {
+    height: 49px;
+    width: 1px;
+    background: #B2B6B8;
+    border-radius: 999px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) { 
+
+}
+
