@@ -34,11 +34,14 @@
     <title>Where the ISS at??</title>
   </head>
   <body>
-    <div class="header">
-      <!-- <h1>Where the ISS at??</h1> -->
-    </div>
+    <div class="header"></div>
 
     <div class="main-section">
+      <div class="title-container">
+        <div class="title">
+          <h2>Where is the International Space Station</h2>
+        </div>
+      </div>
       <div class="section">
         <div class="section-left">
           <div class="text-container">
@@ -47,8 +50,10 @@
               <!-- <br /> -->
               <p>Locate the International Space Station</p>
             </div>
+
             <div id="day-night">
               <h4><p id="vis"></p></h4>
+              <p>The ISS is currently in the</p>
             </div>
             <div class="text-box bottom">
               <div class="lat-box">
@@ -63,19 +68,24 @@
             </div>
             <!-- Altitude -->
             <div class="boxes">
-
               <div class="bottom-box">
                 <div class="left">
                   <img class="alt-img" src="./public/images/icon.png" alt="" />
-                  <p>&nbsp;Altitude</p>
+                  <p class="space-1">
+                    &nbsp;Altitude&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </p>
                 </div>
-                <p><strong id="alt"></strong> mi high</p>
+                <p><strong id="alt"></strong> miles</p>
               </div>
               <!-- MPH -->
               <div class="bottom-box">
                 <div class="left">
-                  <img class="vel-img" src="public/images/dashboard.png" alt="" />
-                  <p>&nbsp;Velocity</p>
+                  <img
+                    class="vel-img"
+                    src="public/images/dashboard.png"
+                    alt=""
+                  />
+                  <p class="space-2">&nbsp;Velocity&nbsp;</p>
                 </div>
                 <p><strong id="vel"></strong> mph</p>
               </div>
@@ -83,9 +93,9 @@
               <div class="bottom-box">
                 <div class="left">
                   <img class="vel-img" src="public/images/clock.png" alt="" />
-                  <p>&nbsp;Time</p>
+                  <p class="space-3">&nbsp;Time</p>
                 </div>
-                <p><strong id="time"></strong> mst</p>
+                <p><strong id="time"></strong> gmt</p>
               </div>
             </div>
           </div>
@@ -106,7 +116,18 @@
         <div id="issMap"></div>
       </div>
     </div>
-    <script></script>
+    <div id="footer">
+      <div class="footer-container">
+        <div>
+          <p>Coded by <a href="https://bentims.com/">Ben Tims</a></p>
+        </div>
+        <div>
+          <p>
+            <a href="https://wheretheiss.at/w/developer">API Documentation</a>
+          </p>
+        </div>
+      </div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

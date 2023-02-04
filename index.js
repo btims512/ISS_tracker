@@ -31,6 +31,7 @@ async function getISS() {
     units,
     visibility,
     velocity,
+    map_url,
   } = data;
 
   marker.setLatLng([latitude, longitude]);
@@ -44,29 +45,51 @@ async function getISS() {
   const formattedNumber = velocity;
   const formattedVelocity = formattedNumber.toLocaleString("en-US");
 
-  document.getElementById("lat").textContent = latitude.toFixed(3);
-  document.getElementById("lon").textContent = longitude.toFixed(3);
-  document.getElementById("alt").textContent = altitude.toFixed(2);
-  document.getElementById("time").textContent = timestamp.toFixed(2);
+  document.getElementById("lat").textContent = latitude.toFixed(2);
+  document.getElementById("lon").textContent = longitude.toFixed(2);
+  document.getElementById("alt").textContent = altitude.toFixed(0);
   document.getElementById("vel").textContent = formattedVelocity;
-  document.getElementById("vis").textContent = capitalized;
+  document.getElementById("time").textContent = timestamp.toFixed(2);
+  // cut d off "eclipsed"
+  if (visibility === "eclipsed") {
+    let eclipse = capitalized.slice(0, -1);
+    document.getElementById("vis").textContent = eclipse;
+  } else {
+    let eclipse = capitalized;
+    document.getElementById("vis").textContent = eclipse;
+    console.log(eclipse);
+  }
 
-  console.log(velocity.toFixed(0));
+  // format time
+  (function () {
+    function checkTime(i) {
+      return i < 10 ? "0" + i : i;
+    }
 
-  dateObj = new Date(timestamp * 1000);
-  mtcString = dateObj.toMTCString();
-  time = utcString.slice(-11, -4);
+    function startTime() {
+      var today = new Date(timestamp),
+        h = checkTime(today.getHours()),
+        m = checkTime(today.getMinutes()),
+        s = checkTime(today.getSeconds());
+      console.log(today);
+      document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+      t = setTimeout(function () {
+        startTime();
+      }, 1000);
+    }
+    startTime();
+  })();
 }
-// setInterval(getISS, 1000);
-getISS();
+
+// time //
+setInterval(getISS, 2000);
+// getISS();
 
 // daylight or eclipsed image
 async function imgChange() {
   const response = await fetch(api_url);
   const data = await response.json();
   const { visibility } = data;
-
-  console.log(visibility);
 
   if (visibility == "daylight") {
     let img = document.createElement("img");
@@ -81,5 +104,4 @@ async function imgChange() {
     src.appendChild(img);
   }
 }
-
 imgChange();
