@@ -82,7 +82,7 @@ async function getISS() {
 }
 
 // time //
-setInterval(getISS, 2000);
+setInterval(getISS, 5000);
 // getISS();
 
 // daylight or eclipsed image
