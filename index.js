@@ -23,16 +23,8 @@ const api_url = "https://api.wheretheiss.at/v1/satellites/25544?&units=miles";
 async function getISS() {
   const response = await fetch(api_url);
   const data = await response.json();
-  const {
-    latitude,
-    longitude,
-    altitude,
-    timestamp,
-    units,
-    visibility,
-    velocity,
-    map_url,
-  } = data;
+  const { latitude, longitude, altitude, timestamp, visibility, velocity } =
+    data;
 
   marker.setLatLng([latitude, longitude]);
   if (firstTime) {
@@ -66,6 +58,7 @@ async function getISS() {
       return i < 10 ? "0" + i : i;
     }
 
+    // time //
     function startTime() {
       var today = new Date(timestamp),
         h = checkTime(today.getHours()),
@@ -80,10 +73,7 @@ async function getISS() {
     startTime();
   })();
 }
-
-// time //
 setInterval(getISS, 5000);
-// getISS();
 
 // daylight or eclipsed image
 async function imgChange() {
@@ -105,3 +95,18 @@ async function imgChange() {
   }
 }
 imgChange();
+
+// loading
+setTimeout(() => {
+  document.querySelector(".lat-box").style.visibility = "hidden";
+  document.querySelector(".lon-box").style.visibility = "hidden";
+  document.querySelector(".boxes").style.visibility = "hidden";
+  document.getElementById("lat").style.visibility = "hidden";
+  document.querySelector("#loader").style.visibility = "visible";
+  //
+  document.querySelector("#loader").style.display = "none";
+  document.querySelector(".lat-box").style.visibility = "visible";
+  document.querySelector(".lon-box").style.visibility = "visible";
+  document.querySelector(".boxes").style.visibility = "visible";
+  document.getElementById("lat").style.visibility = "visible";
+}, 5100);
