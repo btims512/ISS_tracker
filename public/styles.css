@@ -68,7 +68,7 @@ p {
   left: 128px;
   top: 273px;
   border-radius: 16px;
-  padding: 24px 23px 24px 23px;
+  padding: 24px 24px 24px 24px;
 
 }
 
@@ -92,6 +92,7 @@ p {
   align-content: flex-end;
   align-items: center;
   gap: 10px;
+  padding-bottom: 12px;
 }
 
 .bottom-box {
@@ -132,7 +133,6 @@ p {
   width: 30px;
   height: 30px;
   animation: spin .8s linear infinite;
-  margin-bottom: 15px;
 }
 
 @keyframes spin {
@@ -140,15 +140,6 @@ p {
       transform: rotate(360deg);
   }
 }
-
-/* .center {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-} */
 
 .line {
   height: 49px;
@@ -248,6 +239,7 @@ p {
     align-items: center;
     margin-top: -20px;
     gap: 5px;
+    padding-top: 12px;
   }
 
   .middle { 
@@ -408,6 +400,7 @@ p {
     align-items: center;
     margin-top: -20px;
     gap: 5px;
+    padding-top: 12px;
   }
 
   .middle { 

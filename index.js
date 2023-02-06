@@ -31,17 +31,27 @@ async function getISS() {
     map.setView([latitude, longitude], 3);
     firstTime = false;
   }
+  // making visibility uppercase
   const word = visibility;
   const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
 
+  // formatting MPH
   const formattedNumber = velocity;
   const formattedVelocity = formattedNumber.toLocaleString("en-US");
 
+  //formatting time
+  dateObj = new Date(timestamp * 1000);
+  utcString = dateObj.toUTCString();
+  time = utcString.slice(-12, -7);
+
+  console.log(time);
+  // appending
   document.getElementById("lat").textContent = latitude.toFixed(2);
   document.getElementById("lon").textContent = longitude.toFixed(2);
   document.getElementById("alt").textContent = altitude.toFixed(0);
   document.getElementById("vel").textContent = formattedVelocity;
-  document.getElementById("time").textContent = timestamp.toFixed(2);
+  document.getElementById("time").textContent = time;
+
   // cut d off "eclipsed"
   if (visibility === "eclipsed") {
     let eclipse = capitalized.slice(0, -1);
@@ -49,29 +59,30 @@ async function getISS() {
   } else {
     let eclipse = capitalized;
     document.getElementById("vis").textContent = eclipse;
-    console.log(eclipse);
   }
 
-  // format time
-  (function () {
-    function checkTime(i) {
-      return i < 10 ? "0" + i : i;
-    }
+  // format time (hh:mm:ss)
+  // (function () {
+  //   function checkTime(i) {
+  //     return i < 10 ? "0" + i : i;
+  //   }
 
-    // time //
-    function startTime() {
-      var today = new Date(timestamp),
-        h = checkTime(today.getHours()),
-        m = checkTime(today.getMinutes()),
-        s = checkTime(today.getSeconds());
-      console.log(today);
-      document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-      t = setTimeout(function () {
-        startTime();
-      }, 1000);
-    }
-    startTime();
-  })();
+  //   // time //
+  //   function startTime() {
+  //     let today = timestamp,
+  //       h = checkTime(today.getHours()),
+  //       m = checkTime(today.getMinutes()),
+  //       s = checkTime(today.getSeconds());
+
+  //       console.log(today);
+
+  //     document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+  //     t = setTimeout(function () {
+  //       startTime();
+  //     }, 1000);
+  //   }
+  //   startTime();
+  // })();
 }
 setInterval(getISS, 5000);
 
